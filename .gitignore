@@ -1,3 +1,6 @@
+# Important configuration file
+src/config/*.json
+
 # Logs
 logs
 *.log
