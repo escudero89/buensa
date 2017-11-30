@@ -1,6 +1,9 @@
 # Important configuration file
 src/config/*.json
 
+# Due to css being created for the scss
+src/**/*.css
+
 # Logs
 logs
 *.log

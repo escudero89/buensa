@@ -1,5 +1,7 @@
 import './style.css';
 
+import logo from './images/logo.png';
+
 import smallThumb1 from './images/small-thumb-1.jpg';
 import smallThumb2 from './images/small-thumb-2.jpg';
 import smallThumb3 from './images/small-thumb-3.jpg';
@@ -9,209 +11,106 @@ import newsThumb2 from './images/news-thumb-2.jpg';
 import newsThumb3 from './images/news-thumb-3.jpg';
 import newsThumb4 from './images/news-thumb-4.jpg';
 
-import slide1 from './images/slide-1.jpg';
+import Gallery from '../../components/Gallery';
+import UpcomingEvents from '../../components/UpcomingEvents';
 
 const React = require('react');
 
 function Home(props) {
   return (
-    <div class="site-content">
-        <header class="site-header">
-            <div class="container">
-                <a href="#" class="branding">
-                    <img src="images/logo.png" alt="" class="logo" />
-                    <h1 class="site-title">True Church</h1>
+    <div className="site-content">
+        <header className="site-header">
+            <div className="container">
+                <a href="#" className="branding">
+                    <img src={logo} alt="" className="logo" style={{width: '4rem'}} />
+                    <h1 className="site-title">Buen Samaritano</h1>
                 </a>
-
-                <div class="main-navigation">
-                    <button class="menu-toggle"><i class="fa fa-bars"></i> Menu</button>
-                    <ul class="menu">
-                        <li class="menu-item current-menu-item"><a href="index.html">Homepage <small>Lorem ipsum</small></a></li>
-                        <li class="menu-item"><a href="#">Pastors <small>Cupidatat non proident</small></a></li>
-                        <li class="menu-item"><a href="seremons.html">Seremons <small>Laboris nisi aliquip</small></a></li>
-                        <li class="menu-item"><a href="events.html">Events <small>Sunt in culpa</small></a></li>
-                        <li class="menu-item"><a href="families.html">Families <small>Aute irure</small></a></li>
-                        <li class="menu-item"><a href="#">Contact <small>lorem ipsum</small></a></li>
-                    </ul>
-                </div>
-
-                <div class="mobile-navigation"></div>
             </div>
         </header>
 
-        <div class="hero">
-            <div class="slides">
-                <li data-bg-image={slide1}>
-                    <div class="container">
-                        <div class="slide-content">
-                            <small class="slide-subtitle">True Church</small>
-                            <h2 class="slide-title">Place with a real love</h2>
+        <Gallery />
 
-                            <a href="#" class="button">See our families</a>
-                        </div>
-                    </div>
-                </li>
+        <main className="main-content">
+            <div className="fullwidth-block">
+                <div className="container">
+                    <h2 className="section-title">Recent news</h2>
 
-                <li data-bg-image={slide1}>
-                    <div class="container">
-                        <div class="slide-content">
-                            <small class="slide-subtitle">True Church</small>
-                            <h2 class="slide-title">Place with a real love</h2>
-
-                            <a href="#" class="button">See our families</a>
-                        </div>
-                    </div>
-                </li>
-            </div>
-        </div>
-
-        <main class="main-content">
-            <div class="fullwidth-block">
-                <div class="container">
-                    <h2 class="section-title">Recent news</h2>
-
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="news">
-                                <image class="news-image" src={newsThumb1}></image>
-                                <h3 class="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
-                                <small class="date"><i class="fa fa-calendar"></i>24 mar 2014</small>
+                    <div className="row">
+                        <div className="col-md-3 col-sm-6">
+                            <div className="news">
+                                <img className="news-image" src={newsThumb1} />
+                                <h3 className="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
+                                <small className="date"><i className="fa fa-calendar"></i>24 mar 2014</small>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="news">
-                                <image class="news-image" src={newsThumb2}></image>
-                                <h3 class="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
-                                <small class="date"><i class="fa fa-calendar"></i>24 mar 2014</small>
+                        <div className="col-md-3 col-sm-6">
+                            <div className="news">
+                                <img className="news-image" src={newsThumb2} />
+                                <h3 className="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
+                                <small className="date"><i className="fa fa-calendar"></i>24 mar 2014</small>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="news">
-                                <image class="news-image" src={newsThumb3}></image>
-                                <h3 class="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
-                                <small class="date"><i class="fa fa-calendar"></i>24 mar 2014</small>
+                        <div className="col-md-3 col-sm-6">
+                            <div className="news">
+                                <img className="news-image" src={newsThumb3} />
+                                <h3 className="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
+                                <small className="date"><i className="fa fa-calendar"></i>24 mar 2014</small>
                             </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="news">
-                                <image class="news-image" src={newsThumb4}></image>
-                                <h3 class="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
-                                <small class="date"><i class="fa fa-calendar"></i>24 mar 2014</small>
+                        <div className="col-md-3 col-sm-6">
+                            <div className="news">
+                                <img className="news-image" src={newsThumb4} />
+                                <h3 className="news-title"><a href="#">laboris nisi ut aliquip</a></h3>
+                                <small className="date"><i className="fa fa-calendar"></i>24 mar 2014</small>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="fullwidth-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h2 class="section-title">Upcoming events</h2>
-                            <ul class="event-list">
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">africa mission trip</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> Africa</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">Bible school</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> Saint paul church</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">praying for kids</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> true church</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">love giving</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> St cathedral</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">god ont the vacation</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> greenie lake</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <h3 class="event-title">homeless helping</h3>
-                                        <span class="event-meta">
-                            <span><i class="fa fa-calendar"></i>30 mar 2014</span>
-                                        <span><i class="fa fa-map-marker"></i> Detroit city</span>
-
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-
-                            <div class="text-center">
-                                <a href="#" class="button">See all events</a>
-                            </div>
+            <div className="fullwidth-block">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <UpcomingEvents />
                         </div>
-                        <div class="col-md-6">
-                            <h2 class="section-title">Latest seremons</h2>
-                            <ul class="seremon-list">
+                        <div className="col-md-12">
+                            <h2 className="section-title">Latest seremons</h2>
+                            <ul className="seremon-list">
                                 <li>
                                     <img src={smallThumb1} alt=""/>
-                                    <div class="seremon-detail">
-                                        <h3 class="seremon-title"><a href="#">I believe in god with all my heart</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="pastor"><i class="fa fa-user"></i> Alan Ray</div>
-                                            <div class="date"><i class="fa fa-calendar"></i> 18 mar 2014</div>
+                                    <div className="seremon-detail">
+                                        <h3 className="seremon-title"><a href="#">I believe in god with all my heart</a></h3>
+                                        <div className="seremon-meta">
+                                            <div className="pastor"><i className="fa fa-user"></i> Alan Ray</div>
+                                            <div className="date"><i className="fa fa-calendar"></i> 18 mar 2014</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={smallThumb2} alt=""/>
-                                    <div class="seremon-detail">
-                                        <h3 class="seremon-title"><a href="#">Trusting in jesus and god</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="pastor"><i class="fa fa-user"></i> David Clark</div>
-                                            <div class="date"><i class="fa fa-calendar"></i> 18 mar 2014</div>
+                                    <div className="seremon-detail">
+                                        <h3 className="seremon-title"><a href="#">Trusting in jesus and god</a></h3>
+                                        <div className="seremon-meta">
+                                            <div className="pastor"><i className="fa fa-user"></i> David Clark</div>
+                                            <div className="date"><i className="fa fa-calendar"></i> 18 mar 2014</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <img src={smallThumb3} alt=""/>
-                                    <div class="seremon-detail">
-                                        <h3 class="seremon-title"><a href="#">Love your kids</a></h3>
-                                        <div class="seremon-meta">
-                                            <div class="pastor"><i class="fa fa-user"></i> anthony roberts</div>
-                                            <div class="date"><i class="fa fa-calendar"></i> 18 mar 2014</div>
+                                    <div className="seremon-detail">
+                                        <h3 className="seremon-title"><a href="#">Love your kids</a></h3>
+                                        <div className="seremon-meta">
+                                            <div className="pastor"><i className="fa fa-user"></i> anthony roberts</div>
+                                            <div className="date"><i className="fa fa-calendar"></i> 18 mar 2014</div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
 
-                            <div class="text-center">
-                                <a href="#" class="button">See all seremons</a>
+                            <div className="text-center">
+                                <a href="#" className="button">See all seremons</a>
                             </div>
                         </div>
                     </div>
@@ -219,24 +118,24 @@ function Home(props) {
             </div>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="widget">
-                            <h3 class="widget-title">Our address</h3>
+        <footer className="site-footer">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-4">
+                        <div className="widget">
+                            <h3 className="widget-title">Our address</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi perspiciatis magnam, ab ipsa laboriosam tempore tenetur, aliquid repellat, ex cum dicta reiciendis accusamus. Omnis repudiandae quasi mollitia, iusto odio dignissimos.</p>
-                            <ul class="address">
-                                <li><i class="fa fa-map-marker"></i> 329 Church St, Garland, TX 75042</li>
-                                <li><i class="fa fa-phone"></i> (425) 853 442 552</li>
-                                <li><i class="fa fa-envelope"></i> info@yourchurch.com</li>
+                            <ul className="address">
+                                <li><i className="fa fa-map-marker"></i> 329 Church St, Garland, TX 75042</li>
+                                <li><i className="fa fa-phone"></i> (425) 853 442 552</li>
+                                <li><i className="fa fa-envelope"></i> info@yourchurch.com</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="widget">
-                            <h3 class="widget-title">Topics from last meeting</h3>
-                            <ul class="bullet">
+                    <div className="col-md-4">
+                        <div className="widget">
+                            <h3 className="widget-title">Topics from last meeting</h3>
+                            <ul className="bullet">
                                 <li><a href="#">Lorem ipsum dolor sit amet</a></li>
                                 <li><a href="#">Consectetur adipisicing elit quis nostrud</a></li>
                                 <li><a href="#">Eiusmod tempor incididunt ut labore et dolore magna</a></li>
@@ -246,21 +145,21 @@ function Home(props) {
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="widget">
-                            <h3 class="widget-title">Contact form</h3>
-                            <form action="#" class="contact-form">
-                                <div class="row">
-                                    <div class="col-md-6">
+                    <div className="col-md-4">
+                        <div className="widget">
+                            <h3 className="widget-title">Contact form</h3>
+                            <form action="#" className="contact-form">
+                                <div className="row">
+                                    <div className="col-md-6">
                                         <input type="text" placeholder="Your name..."/>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div className="col-md-6">
                                         <input type="text" placeholder="Email..."/>
                                     </div>
                                 </div>
 
                                 <textarea name="" placeholder="Your message..."></textarea>
-                                <div class="text-right">
+                                <div className="text-right">
                                     <input type="submit" value="Send message"/>
                                 </div>
 
@@ -269,7 +168,7 @@ function Home(props) {
                     </div>
                 </div>
 
-                <p class="colophon">Copyright 2014 True Church. All right reserved</p>
+                <p className="colophon">Copyright 2014 True Church. All right reserved</p>
             </div>
         </footer>
   </div>
