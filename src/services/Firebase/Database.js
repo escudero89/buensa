@@ -19,7 +19,7 @@ class Database {
     const schedule = main.ref('schedule');
 
     schedule.on('value', function (snapshot) {
-      this.schedule = snapshot.toJSON();
+      this.schedule = this.parseSchedule(snapshot.toJSON());
       this.trigger('schedule');
     }.bind(this));
 
@@ -30,12 +30,29 @@ class Database {
     return singleton;
   }
 
+  parseSchedule(schedule) {
+    const parsed = {};
+    const today = new Date();
+
+    Object.keys(schedule).forEach((idx) => {
+      const element = schedule[idx];
+      element.datetime = new Date(element.datetime);
+
+      // Avoid adding old elements
+      if (element.datetime < today) { return; }
+
+      parsed[idx] = element;
+    });
+
+    return parsed;
+  }
+
   trigger(key) {
     switch (key) {
-      case 'schedule':
-        this.callbacks.schedule.forEach((cb) => { cb(this.schedule); });
-        break;
-      default: // do nothing
+    case 'schedule':
+      this.callbacks.schedule.forEach((cb) => { cb(this.schedule); });
+      break;
+    default: // do nothing
     }
   }
 

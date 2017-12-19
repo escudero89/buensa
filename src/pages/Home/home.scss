@@ -1,0 +1,26 @@
+.background-cover {
+  background: transparent !important;
+}
+
+.background-cover:before,
+.background-cover:after {
+  content: '';
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -50;
+}
+
+.background-cover:before {
+  background-color: #1b1c1d;
+  background-image: url('./assets/buensa.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -100;
+}
+
+.background-cover:after {
+  background: rgba(0, 0, 0, 0.84);
+}

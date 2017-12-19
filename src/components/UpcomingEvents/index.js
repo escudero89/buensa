@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Item } from 'semantic-ui-react';
+import colorHash from 'color-hash';
 import dateFormat from 'dateformat';
 
 import Database from '../../services/Firebase/Database';
@@ -17,23 +19,50 @@ dateFormat.i18n = {
   ]
 };
 
+const Place = (props) => {
+  const className = 'ui label tiny horizontal';
+  if (props.place.indexOf('http') !== -1) {
+    return (
+      <a href={props.place} className={`${className } orange`} target='_blank'>
+        <i className="marker icon"></i>{props.place}
+      </a>
+    );
+  }
+
+  return (
+    <div className={`${className } grey`}>
+      <i className="marker icon"></i>{props.place || 'A definir'}
+    </div>
+  );
+};
+
 
 const Event = (props) => {
-  const datetime = dateFormat(new Date(props.datetime));
-  return (
-    <li>
-      <a href="#">
-        <h3 className="event-title">{props.name}</h3>
-        <span className="event-meta">
-          <span><i className="fa fa-calendar"></i>{datetime}</span>
-          <span><i className="fa fa-map-marker"></i>{props.place}</span>
-        </span>
-      </a>
-    </li>
-  );
-}
+  const datetime = dateFormat(props.datetime, 'dddd dd mmmm yyyy | HH:MM');
+  const bg = (new colorHash()).hex(props.name).substr(1);
+  const mayusc = props.name.split(/\s/).map((word) => word.substr(0, 1)).join('');
 
-class UpcomingEvents extends React.Component {
+  return (
+    <Item>
+      <Item.Image
+        size='tiny'
+        src={`http://via.placeholder.com/100/${bg}/ffffff?text=${mayusc}`}
+      />
+      <Item.Content>
+        <Item.Header as='a'>{props.name}</Item.Header>
+        <Item.Meta>
+          <span>{datetime}</span>
+        </Item.Meta>
+        <Item.Description>{props.description}</Item.Description>
+        <Item.Extra>
+          <Place place={props.place} />
+        </Item.Extra>
+      </Item.Content>
+    </Item>
+  );
+};
+
+export default class UpcomingEvents extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -48,19 +77,13 @@ class UpcomingEvents extends React.Component {
 
   render() {
     const events = this.state;
-    console.log()
     return (
-      <div>
-        <h2 className="section-title">Upcoming events</h2>
-        <ul className="event-list">
-          {Object.keys(events).map((key) => {
-            const event = events[key];
-            return <Event key={key} {...event} />;
-          })}
-        </ul>
-      </div>
-    )
+      <Item.Group divided>
+        {Object.keys(events).map((key) => {
+          const event = events[key];
+          return <Event key={key} {...event} />;
+        })}
+      </Item.Group>
+    );
   }
 }
-
-export default UpcomingEvents;
